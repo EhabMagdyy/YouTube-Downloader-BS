@@ -13,10 +13,9 @@ if ! command -v yt-dlp &>/dev/null; then
     exit 1
 fi
 
-# Check if the URL is empty
+# Enter URL of the YouTube video/playlist
 while true; do
-    # Prompt for the YouTube URL
-    read -p "Enter YouTube Video URL: " url
+    read -p "Enter YouTube Video/Playlist URL: " url
     if [ -z "$url" ]; then
         echo -e "${COLOR_RED}Error: URL cannot be empty, Please enter a valid YouTube URL.${COLOR_RESET}"
     else
@@ -26,7 +25,7 @@ done
 
 # Ask the user for the directory to save the download
 while true; do
-    read -p "Enter directory to save the video (default is 'YTVids'): " directory
+    read -p "Enter directory to save the videos (default is 'YTVids'): " directory
     directory="${directory:-YTVids}"  # Use default 'YTVids' if no input is provided
 
     # Check if the directory exists
@@ -46,7 +45,7 @@ while true; do
     fi
 done
 
-# Display a more user-friendly and structured menu
+# Display download options
 echo -e "\n${COLOR_CYAN}Please choose a download option:${COLOR_RESET}"
 echo "-----------------------------------------"
 echo "1. Download Video Only"
@@ -56,9 +55,10 @@ echo "-----------------------------------------"
 
 read -p "Enter your choice (1-3): " choice
 
-# Determine output filename based on video title and the chosen directory
+# Set the filename format
 filename="$directory/%(title)s.%(ext)s"
 
+# Download the video based on the user's choice
 case $choice in
     1)
         echo "Downloading video only..."
