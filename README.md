@@ -21,6 +21,27 @@ Ensure `yt-dlp` is installed on your system. If not, you can install it using:
 sudo pip3 install -U yt-dlp
 ```
 
+### Installation in a Virtual Environment (Recommended for Newer Ubuntu Versions)
+
+If you encounter an externally-managed-environment error, use a Python virtual environment:
+
+```bash
+# Install the venv module if it's not already installed
+sudo apt install python3-venv
+
+# Create a virtual environment in a directory named 'yt-dlp-env'
+python3 -m venv yt-dlp-env
+
+# Activate the virtual environment
+source yt-dlp-env/bin/activate
+
+# Now install yt-dlp using pip
+sudo pip3 install -U yt-dlp
+
+# To exit the virtual environment after running the script:
+deactivate
+```
+
 ## 📅 Installation
 
 1. Download the script or clone this repository:
@@ -33,7 +54,7 @@ sudo pip3 install -U yt-dlp
 2. Make the script executable if needed:
 
    ```bash
-   chmod +x downloader.sh
+   chmod +x YTDL.sh
    ```
 
 ## 📌 Usage
@@ -41,7 +62,7 @@ sudo pip3 install -U yt-dlp
 1. Run the script:
 
    ```bash
-   ./downloader.sh
+   ./YTDL.sh
    ```
 
 2. Follow the prompts:
